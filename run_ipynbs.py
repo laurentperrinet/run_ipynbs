@@ -43,7 +43,7 @@ except ImportError:
 from IPython.nbformat.current import reads, NotebookNode
 
 
-def run_cell(shell, iopub, cell, live_output=False):
+def run_cell(shell, iopub, cell, output=False):
 
     shell.execute(cell.input)
 
@@ -69,7 +69,7 @@ def run_cell(shell, iopub, cell, live_output=False):
             out.stream = content['name']
             out.text = content['data']
 
-            if live_output:
+            if output:
                 print(out.text, end="")
 
         elif msg_type in ('display_data', 'pyout'):
@@ -94,7 +94,7 @@ def run_cell(shell, iopub, cell, live_output=False):
     return outs
 
 
-def run_notebook(nb, live_output=False):
+def run_notebook(nb, output=False):
     """
     """
 
@@ -132,7 +132,7 @@ def run_notebook(nb, live_output=False):
             log.info('Run cell #%i' % cells)
             cells += 1
 
-            outs = run_cell(shell, iopub, cell, live_output=live_output)
+            outs = run_cell(shell, iopub, cell, output=output)
 
             if outs and outs[0]['output_type'] == "pyerr":
                 log.error('Fail to execute cell #%i\n' % cells + '\n'.join(outs[0]['traceback']))
@@ -151,7 +151,7 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('ipynbs', type=str, nargs='+', help='Ipynb files you want to run')
-    parser.add_argument("--live_output", "-l", action="store_true", help="Display cells output while they run")
+    parser.add_argument("--output", "-o", action="store_true", help="Display cells output while they run")
     args = parser.parse_args()
 
     for ipynb in args.ipynbs:
@@ -159,4 +159,4 @@ if __name__ == '__main__':
         log.info("Running %s" % ipynb)
         with open(ipynb) as f:
             nb = reads(f.read(), 'json')
-        run_notebook(nb, live_output=args.live_output)
+        run_notebook(nb, live_output=args.output)

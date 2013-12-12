@@ -2,6 +2,11 @@
 
 Run non-interactively ipython notebook files. Strongly inspired from https://gist.github.com/minrk/2620876.
 
+## Features
+
+- run several notebooks
+- reporte failed cells and display error (traceback)
+- display cell output
 
 ## Easy installation
 
@@ -14,14 +19,14 @@ Or with pip : `pip install git+https://github.com/hadim/run_ipynbs.git#egg=maste
 ```
 $ ./run_ipynbs.py --help
 2013-12-12 13:27:24:INFO: Use standard KernelManager
-usage: run_ipynbs.py [-h] [--live_output] ipynbs [ipynbs ...]
+usage: run_ipynbs.py [-h] [--output] ipynbs [ipynbs ...]
 
 positional arguments:
   ipynbs             Ipynb files you want to run
 
 optional arguments:
   -h, --help         show this help message and exit
-  --live_output, -l  Display cells output while they run
+  --output, -o  Display cells output while they run
 ```
 
 Execute a notebook without output :
