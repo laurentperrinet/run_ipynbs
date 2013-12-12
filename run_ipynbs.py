@@ -143,10 +143,12 @@ def run_notebook(nb, output=False):
 
             outs = run_cell(shell, iopub, cell, output=output)
 
-            if outs and outs[0]['output_type'] == "pyerr":
-                log.error('Fail to execute cell #%i\n' % cells + '\n'.join(outs[0]['traceback']))
-                failures += 1
-                continue
+            if outs:
+                for i in range(len(outs)):
+                    if outs[i]['output_type'] == "pyerr":
+                        log.error('Fail to execute cell #%i\n' % cells + '\n'.join(outs[i]['traceback']))
+                        failures += 1
+                        continue
 
             log.info('Done')
 
