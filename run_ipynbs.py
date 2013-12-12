@@ -47,20 +47,29 @@ def run_cell(shell, iopub, cell, output=False):
 
     shell.execute(cell.input)
 
-    shell.get_msg()  # timeout=20
+    #shell.get_msg()  # timeout=20
     outs = []
 
     while True:
+
         try:
-            msg = iopub.get_msg(timeout=0.2)
+            msg = iopub.get_msg(timeout=0.1)
         except Empty:
-            break
+            continue
+
         msg_type = msg['msg_type']
-        if msg_type in ('status', 'pyin'):
+
+        if msg_type  == 'pyin':
             continue
         elif msg_type == 'clear_output':
             outs = []
             continue
+        elif msg_type == 'status':
+            if msg['content']['execution_state'] == 'idle':
+                break
+            else:
+                outs = []
+                continue
 
         content = msg['content']
         out = NotebookNode(output_type=msg_type)

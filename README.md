@@ -6,7 +6,7 @@ Run non-interactively ipython notebook files. Strongly inspired from https://gis
 
 - run several notebooks
 - reporte failed cells and display error (traceback)
-- display cell output
+- display cell output in live !
 
 ## Easy installation
 
