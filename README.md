@@ -1,6 +1,7 @@
 # run_ipynbs
 
-Run non-interactively ipython notebook files.
+Run non-interactively ipython notebook files. Strongly inspired from https://gist.github.com/minrk/2620876.
+
 
 ## Easy installation
 
