@@ -159,4 +159,4 @@ if __name__ == '__main__':
         log.info("Running %s" % ipynb)
         with open(ipynb) as f:
             nb = reads(f.read(), 'json')
-        run_notebook(nb, live_output=args.output)
+        run_notebook(nb, output=args.output)
