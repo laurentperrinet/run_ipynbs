@@ -74,7 +74,7 @@ def run_cell(shell, iopub, cell, live_output=False):
 
         elif msg_type in ('display_data', 'pyout'):
             out['metadata'] = content['metadata']
-            for mime, data in content['data'].iteritems():
+            for mime, data in content['data'].items():
                 attr = mime.split('/')[-1].lower()
                 # this gets most right, but fix svg+html, plain
                 attr = attr.replace('+xml', '').replace('plain', 'text')
@@ -134,7 +134,7 @@ def run_notebook(nb, live_output=False):
 
             outs = run_cell(shell, iopub, cell, live_output=live_output)
 
-            if outs[0]['output_type'] == "pyerr":
+            if outs and outs[0]['output_type'] == "pyerr":
                 log.error('Fail to execute cell #%i\n' % cells + '\n'.join(outs[0]['traceback']))
                 failures += 1
                 continue

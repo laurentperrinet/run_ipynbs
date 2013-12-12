@@ -11,8 +11,6 @@ setup(name='run_ipynbs',
       author_email='hadrien.mary@gmail.com',
       classifiers=[
           'Framework :: IPython',
-          'Programming Language :: Python :: 2',
-          'Programming Language :: Python :: 2.7',
           'Programming Language :: Python :: 3',
           'Programming Language :: Python :: 3.3',
       ],
