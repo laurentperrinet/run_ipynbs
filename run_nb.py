@@ -1,12 +1,20 @@
 #!/usr/bin/env python
+
 """
 Strongly inspired from https://gist.github.com/minrk/2620876.
 
+Developed under Python 3.3 but should easly work on Python 2.7.
 
+Author: HadiM <hadrien.mary@gmail.com>
+License: GPLv3
+Date: 12.12.2013
+Version: 1.0
+Url: https://github.com/hadim/run_ipynbs
+
+See README.md for more details : https://github.com/hadim/run_ipynbs/blob/master/README.md
 """
 
 import os
-import sys
 import logging
 import argparse
 from queue import Empty
@@ -39,7 +47,7 @@ def run_cell(shell, iopub, cell, live_output=False):
 
     shell.execute(cell.input)
 
-    shell.get_msg()  #timeout=20
+    shell.get_msg()  # timeout=20
     outs = []
 
     while True:
