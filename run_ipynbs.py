@@ -70,7 +70,7 @@ def run_cell(shell, iopub, cell, live_output=False):
             out.text = content['data']
 
             if live_output:
-                print(out.text)
+                print(out.text, end="")
 
         elif msg_type in ('display_data', 'pyout'):
             out['metadata'] = content['metadata']
