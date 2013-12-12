@@ -5,16 +5,16 @@ Run non-interactively ipython notebook files. Strongly inspired from https://gis
 
 ## Easy installation
 
-Copy paste run_nb.py to your system and execute it.
+Copy paste run_ipynbs.py to your system and execute it.
 
 Or with pip : `pip install git+https://github.com/hadim/run_ipynbs.git#egg=master`
 
 ## Usage
 
 ```
-$ ./run_nb.py --help
+$ ./run_ipynbs.py --help
 2013-12-12 13:27:24:INFO: Use standard KernelManager
-usage: run_nb.py [-h] [--live_output] ipynbs [ipynbs ...]
+usage: run_ipynbs.py [-h] [--live_output] ipynbs [ipynbs ...]
 
 positional arguments:
   ipynbs             Ipynb files you want to run
@@ -24,10 +24,10 @@ optional arguments:
   --live_output, -l  Display cells output while they run
 ```
 
-Execute a notebook without output : 
+Execute a notebook without output :
 
 ```
- $ ./run_nb.py test.ipynb 
+ $ ./run_ipynbs.py test.ipynb
 2013-12-12 13:27:53:INFO: Use standard KernelManager
 2013-12-12 13:27:53:INFO: Running test.ipynb
 2013-12-12 13:27:55:INFO: Run cell #0
@@ -47,10 +47,10 @@ NameError: name 'hello' is not defined
 2013-12-12 13:27:59:INFO: 4 cells runned with 1 cells failed
 ```
 
-Execute a notebook with live output : 
+Execute a notebook with live output :
 
 ```
-$ ./run_nb.py test.ipynb -l
+$ ./run_ipynbs.py test.ipynb -l
 2013-12-12 13:28:40:INFO: Use standard KernelManager
 2013-12-12 13:28:40:INFO: Running test.ipynb
 2013-12-12 13:28:42:INFO: Run cell #0
