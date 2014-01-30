@@ -5,7 +5,7 @@ import pypandoc
 output = pypandoc.convert('README.md', 'rst')
 
 setup(name='run_ipynbs',
-      version='1.0',
+      version='1.1',
       license='GPLv3',
       description='Run non-interactively ipython notebook files',
       long_description=output,

@@ -12,7 +12,7 @@ Run non-interactively ipython notebook files. Strongly inspired from https://gis
 
 Copy paste run_ipynbs.py to your system and execute it.
 
-Or with pip : `pip install git+https://github.com/hadim/run_ipynbs.git#egg=master`
+Or with pip : `pip install run_ipynbs`
 
 ## Usage
 
