@@ -1,10 +1,14 @@
 from setuptools import setup
 
+import pypandoc
+
+output = pypandoc.convert('README.md', 'rst')
+
 setup(name='run_ipynbs',
       version='1.0',
       license='GPLv3',
       description='Run non-interactively ipython notebook files',
-      long_description=open('README.md').read(),
+      long_description=output,
       keywords='ipython, notebooks, non-interactive, console',
       url='https://github.com/hadim/run_ipynbs',
       author='HadiM',
