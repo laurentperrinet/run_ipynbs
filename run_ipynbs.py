@@ -17,7 +17,8 @@ See README.md for more details : https://github.com/hadim/run_ipynbs/blob/master
 import os
 import logging
 import argparse
-from queue import Empty
+# from multiprocessing import Queue
+from Queue import Empty
 
 logformat = '%(asctime)s' + ':'
 logformat += '%(levelname)s' + ':'
@@ -79,7 +80,7 @@ def run_cell(shell, iopub, cell, output=False):
             out.text = content['data']
 
             if output:
-                print(out.text, end="")
+                print(out.texti)#, end="")
 
         elif msg_type in ('display_data', 'pyout'):
             out['metadata'] = content['metadata']
